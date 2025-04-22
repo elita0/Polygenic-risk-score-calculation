@@ -22,11 +22,14 @@ Sample data is from CARDIoGRAMplusC4D database. Sa penotype data was used distib
 |     2|               |-|66345|
 |     3|               |-|6452424|
 
-.ped file
+.ped file 
 
 
 
+to binary files .bed .bim .fam
 
 
+
+PRS clalcuation with
 
 ##Softvere
