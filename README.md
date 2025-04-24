@@ -8,7 +8,14 @@ It requires foloqing inputs:
 
 ## Setting up the environment
 Instalation 
+PRSice-2 relies on PLINK for genetic data processing. Follow these steps:
 
+
+https://github.com/choishingwan/PRSice   for PRSice intaltaiton- download
+
+Navigate to the directory where you extracted PRSice (C:\PRSice) using the command:
+bash
+cd C:\PRSice
 
 ##Data
 
@@ -30,12 +37,19 @@ Sample data is from CARDIoGRAMplusC4D database. Sa penotype data was used distib
 
 
 to binary files .bed .bim .fam
+.\plink2 --pedmap data.ped data.map --make-bed --out data_binary
 
 ## Quality control
 
 ## PRS clalcuation with
 PRS calcualtio using plink
 ##Softvere
+-All files in the same directiroy including PLINK and PRSice
+## PLINK
+
+## PRSice tool
+Rscript PRSice.R --prsice PRSice_win64.exe --base gwas_summary_stats.txt --target nucleotides_genotype_binary --binary-target T --pheno phenotype.txt --covariate covariates.txt --snp SNP --chr CHR --bp BP --a1 A1 --a2 A2 --stat BETA --pvalue P --out PRS_output
+
 
 ## output results
 
