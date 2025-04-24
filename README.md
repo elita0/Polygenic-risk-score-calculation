@@ -6,10 +6,8 @@ It requires foloqing inputs:
 2.	A base cohort: GWAS summary statistics which will be used to calculate the PRS. 
 3.	A target phenotype: a file specifying sample IDs, phenotypes and covariates.
 
-
-
-
-##Instalation 
+## Setting up the environment
+Instalation 
 
 
 ##Data
@@ -23,13 +21,27 @@ Sample data is from CARDIoGRAMplusC4D database. Sa penotype data was used distib
 |     3|               |-|6452424|
 
 .ped file 
+|Family ID |Individual IID|Father's ID (O for unknown)|Mather's ID (O for unknown)|sex|phenotype|First alelle|Second allele|First allele|Second allele|
+|-----:|---------------|-|----|---|-|-|-|-|-|
+|     1|               |-|||||||
+|     2|               |-||||||||
+|     3|               |-||||||||
 
 
 
 to binary files .bed .bim .fam
 
+## Quality control
 
-
-PRS clalcuation with
-
+## PRS clalcuation with
+PRS calcualtio using plink
 ##Softvere
+
+## output results
+
+|FID | IID |ALLELE_CT|NAMED_ALLELE_DOSAGE_SUM|SCORE1_AVG|
+|-----:|---------------|-|-|----|
+|     1|               ||||
+|     2|               ||||
+|     3|               ||||
+
