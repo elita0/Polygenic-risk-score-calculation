@@ -49,7 +49,12 @@ PRS calcualtio using plink
 
 ## PRSice tool
 Rscript PRSice.R --prsice PRSice_win64.exe --base gwas_summary_stats.txt --target nucleotides_genotype_binary --binary-target T --pheno phenotype.txt --covariate covariates.txt --snp SNP --chr CHR --bp BP --a1 A1 --a2 A2 --stat BETA --pvalue P --out PRS_output
+ GWAS data
 
+|SNP | CHR |BPT|A1M|A2|BETA|P-value|
+|-----:|---------------|-|-|----|-|-|
+|     1|               ||||||
+|     3|               ||||||
 
 ## output results
 
