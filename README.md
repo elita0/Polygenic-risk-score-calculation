@@ -6,7 +6,19 @@ It requires foloqing inputs:
 2.	A base cohort: GWAS summary statistics which will be used to calculate the PRS. 
 3.	A target phenotype: a file specifying sample IDs, phenotypes and covariates.
 
+shame
+R- paltform where PRSice works
+Rscript comand that R scirpts form comandline
+PRSice.R sciript that reads GWAS data
+PRSice_win64.exe palīgprogrammas file, wich helps faster run 
+![image](https://github.com/user-attachments/assets/b387154b-607e-42d3-ada2-0a39a1b82049)
+
+
 ## Setting up the environment
+PLINK instalation 
+https://www.cog-genomics.org/plink/1.9/
+
+
 Instalation 
 PRSice-2 relies on PLINK for genetic data processing. Follow these steps:
 
