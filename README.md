@@ -19,6 +19,7 @@ https://www.cog-genomics.org/plink/1.9/
 ##Data
 
 Sample data is from CARDIoGRAMplusC4D database. Sa penotype data was used distibution in cases and controls
+Raw data was is excel format and changet to binary files using map_ped.py 
 .map file
 |Chr | SNP |          |Position|
 |-----:|---------------|-|----|
@@ -45,18 +46,17 @@ PRS calcualtio using plink
 ##Softvere
 -All files in the same directiroy including PLINK and PRSice
 ## PLINK
-
+As a minor allele is used GWAS data
 
 ## PRSice tool
 
 Instalation 
 PRSice-2 relies on PLINK for genetic data processing. 
 
-https://github.com/choishingwan/PRSice   for PRSice intaltaiton- download
 
-Navigate to the directory where you extracted PRSice (C:\PRSice) using the command:
-bash
-cd C:\PRSice
+https://github.com/choishingwan/PRSice   for PRSice intaltaiton- download
+R packages data.table, magrittr, stringr
+
 
 PRSice usage explanation shame
 R- paltform where PRSice works
