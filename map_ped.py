@@ -1,14 +1,18 @@
+#script uses excel format input files. Format you can see in .... file. 
+
+
+
 import pandas as pd
 import os
 
-# --- User Input ---
-nucleotide_genotypes_path = input("Enter the path to the nucleotide genotypes Excel file: ")
+# Input files
+genotypes_path = input("Enter the path to the nucleotide genotypes Excel file: ")
 snp_info_path = input("Enter the path to the SNP info Excel file: ")
 output_ped_path = input("Enter the path for the output .ped file: ")
 output_map_path = input("Enter the path for the output .map file: ")
 
-# --- Read Excel Files ---
-df = pd.read_excel(nucleotide_genotypes_path, engine='openpyxl')
+# Read Excel Files
+df = pd.read_excel(genotypes_path, engine='openpyxl')
 snp_info = pd.read_excel(snp_info_path, engine='openpyxl')
 
 # --- Create .ped File ---
@@ -34,7 +38,7 @@ def create_ped_file(df, output_ped_path):
             ped_line = f"{family_id} {participant_id} 0 0 0 -9 " + " ".join(genotype_data) + "\n"
             ped_file.write(ped_line)
 
-# --- Create .map File ---
+# Create .map File
 def create_map_file(snp_info, output_map_path):
     with open(output_map_path, 'w') as map_file:
         for _, row in snp_info.iterrows():
@@ -48,7 +52,7 @@ def create_map_file(snp_info, output_map_path):
 
             map_file.write(f"{chromosome} {snp_id} 0 {position}\n")
 
-# --- Verification ---
+# Verification/debuging
 def verify_ped_and_map(ped_path, map_path):
     with open(map_path, 'r') as map_file:
         num_map_snps = sum(1 for _ in map_file)
@@ -61,7 +65,7 @@ def verify_ped_and_map(ped_path, map_path):
     print(f"\n.map SNPs: {num_map_snps}, .ped SNPs: {num_ped_snps}")
     print("Files are consistent!" if num_map_snps == num_ped_snps else "Mismatch in SNP counts!")
 
-# --- Run Everything ---
+#  Run Everything 
 create_ped_file(df, output_ped_path)
 create_map_file(snp_info, output_map_path)
 verify_ped_and_map(output_ped_path, output_map_path)
