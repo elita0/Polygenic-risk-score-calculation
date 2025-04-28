@@ -1,27 +1,21 @@
 # PRS
 
 This pipeline calculates polygeic risk score(PRS) using two tools PLINK-2 and PRSice1.9.
-It requires foloqing inputs:
+
+It requires folowing inputs:
 1.	A target cohort: genotype data of the individuals for which you wish to obtain PRS scores
 2.	A base cohort: GWAS summary statistics which will be used to calculate the PRS. 
-3.	A target phenotype: a file specifying sample IDs, phenotypes and covariates.
-
-shame
-R- paltform where PRSice works
-Rscript comand that R scirpts form comandline
-PRSice.R sciript that reads GWAS data
-PRSice_win64.exe palīgprogrammas file, wich helps faster run 
-![image](https://github.com/user-attachments/assets/b387154b-607e-42d3-ada2-0a39a1b82049)
+3.	A target phenotype: a file specifying sample IDs, phenotypes and covariates (optional)
 
 
-## Setting up the environment
+
+## Setting up the environment (All tools and data shoulde be located in one file)
 PLINK instalation 
 https://www.cog-genomics.org/plink/1.9/
 
 
 Instalation 
-PRSice-2 relies on PLINK for genetic data processing. Follow these steps:
-
+PRSice-2 relies on PLINK for genetic data processing. 
 
 https://github.com/choishingwan/PRSice   for PRSice intaltaiton- download
 
@@ -60,6 +54,15 @@ PRS calcualtio using plink
 ## PLINK
 
 ## PRSice tool
+
+PRSice usage explanation shame
+R- paltform where PRSice works
+Rscript comand that R scirpts form comandline
+PRSice.R sciript that reads GWAS data
+PRSice_win64.exe palīgprogrammas file, wich helps faster run 
+![image](https://github.com/user-attachments/assets/b387154b-607e-42d3-ada2-0a39a1b82049)
+
+
 Rscript PRSice.R --prsice PRSice_win64.exe --base gwas_summary_stats.txt --target nucleotides_genotype_binary --binary-target T --pheno phenotype.txt --covariate covariates.txt --snp SNP --chr CHR --bp BP --a1 A1 --a2 A2 --stat BETA --pvalue P --out PRS_output
  GWAS data
 
