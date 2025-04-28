@@ -14,14 +14,7 @@ PLINK instalation
 https://www.cog-genomics.org/plink/1.9/
 
 
-Instalation 
-PRSice-2 relies on PLINK for genetic data processing. 
 
-https://github.com/choishingwan/PRSice   for PRSice intaltaiton- download
-
-Navigate to the directory where you extracted PRSice (C:\PRSice) using the command:
-bash
-cd C:\PRSice
 
 ##Data
 
@@ -53,7 +46,17 @@ PRS calcualtio using plink
 -All files in the same directiroy including PLINK and PRSice
 ## PLINK
 
+
 ## PRSice tool
+
+Instalation 
+PRSice-2 relies on PLINK for genetic data processing. 
+
+https://github.com/choishingwan/PRSice   for PRSice intaltaiton- download
+
+Navigate to the directory where you extracted PRSice (C:\PRSice) using the command:
+bash
+cd C:\PRSice
 
 PRSice usage explanation shame
 R- paltform where PRSice works
@@ -63,15 +66,15 @@ PRSice_win64.exe palīgprogrammas file, wich helps faster run
 ![image](https://github.com/user-attachments/assets/b387154b-607e-42d3-ada2-0a39a1b82049)
 
 
-Rscript PRSice.R --prsice PRSice_win64.exe --base gwas_summary_stats.txt --target nucleotides_genotype_binary --binary-target T --pheno phenotype.txt --covariate covariates.txt --snp SNP --chr CHR --bp BP --a1 A1 --a2 A2 --stat BETA --pvalue P --out PRS_output
+Rscript PRSice.R --prsice PRSice_win64.exe --base gwas_summary_stats.txt --target genotype_binary --binary-target T --pheno phenotype.txt --covariate covariates.txt --snp SNP --chr CHR --bp BP --a1 A1 --a2 A2 --stat BETA --pvalue P --out PRS_output
  GWAS data
 
-|SNP | CHR |BPT|A1M|A2|BETA|P-value|
+|SNP | CHR |BPT|A1|A2|BETA|P-value|
 |-----:|---------------|-|-|----|-|-|
 |     1|               ||||||
 |     3|               ||||||
 
-## output results
+## output file format
 
 |FID | IID |ALLELE_CT|NAMED_ALLELE_DOSAGE_SUM|SCORE1_AVG|
 |-----:|---------------|-|-|----|
