@@ -1,5 +1,5 @@
-|Participant ID| SNP1 |SNP2|..|
-|-----:|---------------|-|----|
-|X|AG|-|345666|
-|Y|CG|-|66345|
-|Z|GG|-|6452424|
+| Participant ID | SNP1 | SNP2 | SNP3    |
+|----------------|------|------|---------|
+| X              | AG   |   nn   | nn |
+| Y              | CG   |   nn   | nn  |
+| Z              | GG   |   nn   | nn |
