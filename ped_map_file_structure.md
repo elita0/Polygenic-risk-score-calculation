@@ -1,5 +1,5 @@
 | Participant ID |SNP1|SNP2|SNP3|
 |----------|----|----|----|
-| X        | AG | nn | nn |
-| Y        | CG | nn | nn |
-| Z        | GG | nn | nn |
+| X        | AG | TT | nn |
+| Y        | CG | TG | nn |
+| Z        | GG | TT | nn |
