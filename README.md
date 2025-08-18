@@ -36,11 +36,29 @@ To convert the `.ped` and `.map` files into binary PLINK files (`.bed`, `.bim`, 
 
 ## Quality control
 
-## PRS calcuation with
-PRS calcualtio using plink
-##Softvere
+Quality control steps include:
+
+- Minor allele frequency (MAF) filter  
+- Hardy–Weinberg equilibrium (HWE) filter  
+- Genotyping missingness per SNP (`--geno`)  
+- Individual missingness (`--mind`)  
+
+For other QC checks, see the [PRS Tutorial on Target Data](https://choishingwan.github.io/PRS-Tutorial/target/).
+
+### Ambiguous SNPs in PRSice
+
+When calculating PRS with PRSice, you may get errors about ambiguous SNPs (A/T or C/G).  
+Use one of the following options:
+
+- `--keep-ambig` → keep ambiguous SNPs in the analysis  
+- `--remove-ambig` (older versions) → explicitly drop ambiguous SNPs  
+
+
+
+## PRS calculation
+
 -All files in the same directiroy including PLINK and PRSice
-## PLINK
+### PLINK
 As a minor allele is used GWAS data
 
 
@@ -54,7 +72,7 @@ Rscript PRSice.R --prsice PRSice_win64.exe --base gwas_summary_stats.txt --targe
 |     1|               ||||||
 |     3|               ||||||
 
-## output file format
+### output file format
 
 |FID | IID |ALLELE_CT|NAMED_ALLELE_DOSAGE_SUM|SCORE1_AVG|
 |-----:|---------------|-|-|----|
