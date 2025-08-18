@@ -28,12 +28,15 @@ In this example, the sample data comes from the CARDIoGRAMplusC4D database. Phen
 
 
 
-to binary files .bed .bim .fam
-.\plink2 --pedmap data.ped data.map --make-bed --out data_binary
+To convert the `.ped` and `.map` files into binary PLINK files (`.bed`, `.bim`, `.fam`), run the following command in the command line:
+
+```bash
+./plink2 --pedmap data.ped data.map --make-bed --out data_binary
+```
 
 ## Quality control
 
-## PRS clalcuation with
+## PRS calcuation with
 PRS calcualtio using plink
 ##Softvere
 -All files in the same directiroy including PLINK and PRSice
@@ -41,8 +44,9 @@ PRS calcualtio using plink
 As a minor allele is used GWAS data
 
 
-
+```
 Rscript PRSice.R --prsice PRSice_win64.exe --base gwas_summary_stats.txt --target genotype_binary --binary-target T --pheno phenotype.txt --covariate covariates.txt --snp SNP --chr CHR --bp BP --a1 A1 --a2 A2 --stat BETA --pvalue P --out PRS_output
+```
  GWAS data
 
 |SNP | CHR |BPT|A1|A2|BETA|P-value|
