@@ -10,8 +10,8 @@ It requires folowing inputs:
 
 ## Data
 
-Sample data is from CARDIoGRAMplusC4D database. Sa penotype data was used distibution in cases and controls
-Raw data was is excel format and changet to binary files using map_ped.py 
+In this example, the sample data comes from the CARDIoGRAMplusC4D database. Phenotype data is defined as case–control status, where individuals are assigned to either the case group or the control group. The raw data is provided in Excel format and is converted to PLINK-compatible files (.ped/.map) using map_ped.py.
+
 .map file
 |Chr | SNP |          |Position|
 |-----:|---------------|-|----|
