@@ -16,8 +16,11 @@ Required input files:
 
 
 ## Data
+Raw genotype tables should be converted to **PLINK binary files** for downstream analyses.  
+See [ped_map_file_structure.md](./ped_map_file_structure.md#example-input-and-output-file-structure) and [map_ped.py](./map_ped.py) for detailed instructions on converting raw tables to `.ped` and `.map` formats.  
 
- Input data shoude be canget to binary files for felowing runs. Phenotype data is defined as case–control status, where individuals are assigned to either the case group or the control group. The raw data is provided in Excel format and is converted to PLINK-compatible files (.ped/.map) using map_ped.py.
+Both PRSice and PLINK allow adding phenotype and covariate data (e.g., age, sex, disease status) at run time — e.g., PRSice (--pheno / --cov) or PLINK (--pheno / --covar) — to link outcomes and covariates with genotype IDs (FID / IID).
+
 
 .map file
 |Chr | SNP |          |Position|
