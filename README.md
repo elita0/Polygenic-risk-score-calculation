@@ -63,7 +63,17 @@ As a minor allele is used GWAS data
 
 
 ```
-Rscript PRSice.R --prsice PRSice_win64.exe --base gwas_summary_stats.txt --target genotype_binary --binary-target T --pheno phenotype.txt --covariate covariates.txt --snp SNP --chr CHR --bp BP --a1 A1 --a2 A2 --stat BETA --pvalue P --out PRS_output
+Rscript PRSice.R \
+  --prsice PRSice_win64.exe \
+  --base gwas_summary_stats.txt \
+  --target genotype_binary \
+  --pheno phenotype.txt \
+  --cov covariates.txt \
+  --snp SNP --chr CHR --bp BP --A1 A1 --A2 A2 \
+  --stat BETA --pvalue P \
+  --binary-target T \
+  --out PRS_output
+
 ```
  GWAS data
 
