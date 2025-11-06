@@ -1,8 +1,15 @@
 # Polygenic risk score calculation
 
-This pipeline calculates polygeic risk score(PRS) using two tools PLINK-2 and PRSice1.9.
+This repository provides a complete workflow for calculating Polygenic Risk Scores (PRS) using PLINK 1.9/2.0 and PRSice-2.
 
-It requires folowing inputs:
+It includes:
+
+Environment setup instructions (PLINK, R, PRSice)
+Data conversion script (map_ped.py)
+QC and PRS computation pipeline
+Example input/output file structures
+
+Required input files:
 1.	A target cohort: genotype data of the individuals for which you wish to obtain PRS scores
 2.	A base cohort: GWAS summary statistics which will be used to calculate the PRS. 
 3.	A target phenotype: a file specifying sample IDs, phenotypes and covariates (optional)
@@ -10,7 +17,7 @@ It requires folowing inputs:
 
 ## Data
 
-In this example, the sample data comes from the CARDIoGRAMplusC4D database. Phenotype data is defined as case–control status, where individuals are assigned to either the case group or the control group. The raw data is provided in Excel format and is converted to PLINK-compatible files (.ped/.map) using map_ped.py.
+ Input data shoude be canget to binary files for felowing runs. Phenotype data is defined as case–control status, where individuals are assigned to either the case group or the control group. The raw data is provided in Excel format and is converted to PLINK-compatible files (.ped/.map) using map_ped.py.
 
 .map file
 |Chr | SNP |          |Position|
@@ -58,7 +65,7 @@ Otherwise, ambiguous SNPs should be removed to prevent strand mismatches.
 
 ## PRS calculation
 
--All files in the same directiroy including PLINK and PRSice
+-All files should be in the same directiroy including PLINK and PRSice tools
 ### PLINK
 As a minor allele is used GWAS data
 
