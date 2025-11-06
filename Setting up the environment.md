@@ -47,12 +47,6 @@ Note: For easier file handling, place all tools and data in the same folder.
 
 You can use the provided Docker environment instead of installing tools manually.
 
-Dockerfile: ./Dockerfile
+Dockerfile: [./Dockerfile](./Dockerfile)  
+How to run: [./running_docker.md](./running_docker.md)
 
-How to run: running_docker.md
-
-(Follow running_docker.md for build/run commands.)
-
-
-(See running_docker.md
- for full build/run examples.)
