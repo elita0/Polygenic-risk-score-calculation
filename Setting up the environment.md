@@ -43,3 +43,16 @@ All results are combined to generate the Polygenic Risk Score (PRS) for each ind
 Note: For easier file handling, place all tools and data in the same folder.
 
 
+### Docker (optional, recommended for reproducibility)
+
+You can use the provided Docker environment instead of installing tools manually.
+
+Dockerfile: ./Dockerfile
+
+How to run: running_docker.md
+
+(Follow running_docker.md for build/run commands.)
+
+
+(See running_docker.md
+ for full build/run examples.)
