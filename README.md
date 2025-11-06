@@ -48,7 +48,8 @@ For other QC checks, see the [PRS Tutorial on Target Data](https://choishingwan.
 ### Ambiguous SNPs in PRSice
 
 When calculating PRS with PRSice, you may get errors about ambiguous SNPs (A/T or C/G).  
-Use one of the following options:
+Include ambiguous SNPs only if the GWAS summary statistics and the target genotype data are aligned on the same strand.
+Otherwise, ambiguous SNPs should be removed to prevent strand mismatches.
 
 - `--keep-ambig` → keep ambiguous SNPs in the analysis  
 - `--remove-ambig` (older versions) → explicitly drop ambiguous SNPs  
