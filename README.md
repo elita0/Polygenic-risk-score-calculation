@@ -46,12 +46,24 @@ To convert the `.ped` and `.map` files into binary PLINK files (`.bed`, `.bim`, 
 
 ## Quality control
 
-Quality control steps include:
+Quality control ensures that genotype data are reliable before calculating PRS.
+Typical QC steps include:
 
-- Minor allele frequency (MAF) filter  
-- Hardy–Weinberg equilibrium (HWE) filter  
-- Genotyping missingness per SNP (`--geno`)  
-- Individual missingness (`--mind`)  
+- Minor Allele Frequency (MAF) filter
+Removes rare variants with very low allele frequencies (e.g., --maf 0.01 keeps SNPs with MAF ≥ 1%).
+
+- Hardy–Weinberg Equilibrium (HWE) test
+Excludes SNPs deviating from expected genotype proportions in controls (e.g., --hwe 1e-6).
+
+- Genotyping missingness per SNP (--geno)
+Removes SNPs with high missing call rates (e.g., --geno 0.05 excludes SNPs missing in > 5% of samples).
+
+- Individual missingness (--mind)
+Removes individuals with excessive missing genotypes (e.g., --mind 0.1 excludes samples with > 10% missing data).
+
+Additional QC steps may include sample sex check, heterozygosity outlier detection, and relatedness filtering.Quality control steps include:
+
+
 
 For other QC checks, see the [PRS Tutorial on Target Data](https://choishingwan.github.io/PRS-Tutorial/target/).
 
