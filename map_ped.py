@@ -6,27 +6,23 @@ map_ped_basic.py
 Convert genotype and SNP information tables (Excel/CSV/TSV) into
 PLINK-compatible .ped and .map files.
 
-Usage:
-    python map_ped_basic.py
-    (then follow interactive prompts)
-
-Author: Open, reusable script for PRS / GWAS workflows.
 """
 
 import pandas as pd
 from pathlib import Path
 import re
 
-# =========================
-# Input paths (interactive)
+
+# Input paths
 # =========================
 genotypes_path = input("Enter the path to the genotype table (Excel/CSV/TSV): ").strip()
 snp_info_path  = input("Enter the path to the SNP info table (Excel/CSV/TSV): ").strip()
 output_ped_path = input("Enter the path for the output .ped file: ").strip()
 output_map_path = input("Enter the path for the output .map file: ").strip()
 
-# =========================
-# Helper: read any supported table type
+
+
+# Read any supported table type
 # =========================
 def read_table(path: str) -> pd.DataFrame:
     """Reads Excel (.xlsx/.xls) or CSV/TSV (.csv/.tsv/.txt) automatically."""
@@ -45,13 +41,13 @@ def read_table(path: str) -> pd.DataFrame:
         except Exception:
             return pd.read_csv(p)
 
-# =========================
+
 # Read the input files
 # =========================
 df = read_table(genotypes_path)
 snp_info = read_table(snp_info_path)
 
-# =========================
+
 # Genotype normalization
 # Accepts values such as "A G", "AG", "A/G", "A|G", or a single allele.
 # =========================
@@ -76,7 +72,7 @@ def normalize_genotype(val):
         return ["0", "0"]
     return [a1, a2]
 
-# =========================
+
 # Create .ped file
 # =========================
 def create_ped_file(df, output_ped_path):
@@ -100,7 +96,7 @@ def create_ped_file(df, output_ped_path):
             ped_line = f"{family_id} {participant_id} 0 0 0 -9 " + " ".join(genotype_data) + "\n"
             ped_file.write(ped_line)
 
-# =========================
+
 # Create .map file
 # Required columns: #CHROM, ID, POS
 # =========================
@@ -121,7 +117,7 @@ def create_map_file(snp_info, output_map_path):
     if missing > 0:
         print(f"Note: skipped {missing} SNP rows due to missing #CHROM/ID/POS")
 
-# =========================
+
 # Simple consistency check
 # =========================
 def verify_ped_and_map(ped_path, map_path):
@@ -137,7 +133,7 @@ def verify_ped_and_map(ped_path, map_path):
     print(f"\n.map SNPs: {num_map_snps}, .ped SNPs: {num_ped_snps}")
     print("Files are consistent!" if num_map_snps == num_ped_snps else "Mismatch in SNP counts!")
 
-# =========================
+
 # Run all steps
 # =========================
 create_ped_file(df, output_ped_path)
@@ -146,4 +142,5 @@ verify_ped_and_map(output_ped_path, output_map_path)
 
 print("\nNext step (convert to binary PLINK format):")
 print(f"  plink --ped {output_ped_path} --map {output_map_path} --make-bed --out data_binary")
+
 
