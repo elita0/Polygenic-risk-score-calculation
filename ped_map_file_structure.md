@@ -1,4 +1,4 @@
-# Example input and output for PLINK `.ped` and `.map` files
+# Example input and output file structure to make  PLINK `.ped` and `.map` files with map_ped.py
 
 This project converts genotype data (Excel) into PLINK `.ped` and `.map` formats.  
 Below is an example (3 individuals × 3 SNPs).
@@ -13,7 +13,7 @@ Below is an example (3 individuals × 3 SNPs).
 | Y | C G | T G |    |
 | Z | G G | T T |    |
 
-> Genotypes should be written as **two alleles separated by a space** (e.g., `A G`, `T T`).  
+> Genotypes may be written as A G, AG, A/G, A|G, or a single allele (A → interpreted as A A).
 > Leave the cell empty if data is missing.
 
 ---
@@ -72,4 +72,3 @@ Z Z 0 0 0 -9 G G T T 0 0
 
 ---
 
-With real data, the number of SNPs will be much larger (e.g., 197 SNPs → 394 allele columns in `.ped`).
