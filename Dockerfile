@@ -1,38 +1,51 @@
-# PRS environment: PLINK 1.9 + PRSice-2 on R base
+# PRS environment: R + PLINK 1.9/2.0 + PRSice-2
 FROM rocker/r-base:4.3.2
 
-# Avoid tzdata prompts, keep image small
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Core system deps (add curl for resilient downloads)
+# Core tools/libs
 RUN apt-get update && apt-get install -y --no-install-recommends \
     wget curl unzip ca-certificates \
     libcurl4-openssl-dev libxml2-dev libssl-dev \
  && rm -rf /var/lib/apt/lists/*
 
-# --- PLINK 1.9 (robust download with HTTPS + fallback) ---
+# ---------- PLINK 2 (recommended) ----------
 RUN set -eux; \
-    url1="https://plink1-assets.s3.amazonaws.com/plink_linux_x86_64.zip"; \
-    url2="https://s3.amazonaws.com/plink1-assets/plink_linux_x86_64.zip"; \
-    curl -fL "$url1" -o /tmp/plink.zip || curl -fL "$url2" -o /tmp/plink.zip; \
-    unzip -q /tmp/plink.zip -d /usr/local/bin/; \
-    rm -f /tmp/plink.zip; \
+    curl -fL "https://s3.amazonaws.com/plink2-assets/plink2_linux_x86_64_latest.zip" \
+      -o /tmp/plink2.zip; \
+    unzip -q /tmp/plink2.zip -d /usr/local/bin/; \
+    rm -f /tmp/plink2.zip; \
+    chmod +x /usr/local/bin/plink2
+
+# ---------- PLINK 1.9 (fallback; use dated asset) ----------
+RUN set -eux; \
+    ( \
+      curl -fL "https://s3.amazonaws.com/plink1-assets/plink_linux_x86_64_20230116.zip" -o /tmp/plink1.zip \
+      || curl -fL "https://s3.amazonaws.com/plink1-assets/plink_linux_x86_64_20221024.zip" -o /tmp/plink1.zip \
+    ); \
+    unzip -q /tmp/plink1.zip -d /usr/local/bin/; \
+    rm -f /tmp/plink1.zip; \
     chmod +x /usr/local/bin/plink
 
-# --- PRSice-2 (Linux build + R script) ---
+# ---------- PRSice-2 (Linux) ----------
 RUN set -eux; \
     curl -fL "https://github.com/choishingwan/PRSice/releases/latest/download/PRSice_linux.zip" \
       -o /tmp/PRSice_linux.zip; \
     unzip -q /tmp/PRSice_linux.zip -d /opt/PRSice; \
-    ln -sf /opt/PRSice/PRSice.R /usr/local/bin/PRSice.R; \
+    ln -sf /opt/PRSice/PRSice.R     /usr/local/bin/PRSice.R; \
     ln -sf /opt/PRSice/PRSice_linux /usr/local/bin/PRSice_linux; \
-    rm -f /tmp/PRSice_linux.zip
+    rm -f /tmp/PRSice_linux.zip; \
+    chmod +x /usr/local/bin/PRSice_linux
 
 # R packages commonly used by PRSice examples
 RUN R -q -e "install.packages(c('data.table','magrittr','stringr'), repos='https://cloud.r-project.org')"
 
-# Working directory
 WORKDIR /work
 
-# Default: show versions (you can override CMD at runtime)
-CMD ["bash","-lc","echo 'PLINK:' && plink --version && echo && echo 'PRSice:' && /usr/local/bin/PRSice_linux --help | head -n 10 && echo && Rscript -e 'sessionInfo()'"]
+# Show versions on container start (safe even if help returns nonzero)
+CMD ["bash","-lc", "\
+  echo 'PLINK 2:' && plink2 --version && echo && \
+  echo 'PLINK 1.9:' && plink --version  || true && echo && \
+  echo 'PRSice-2:' && /usr/local/bin/PRSice_linux --help | head -n 15 || true && echo && \
+  echo 'R:' && Rscript --version && echo && Rscript -e 'sessionInfo()' \
+"]
