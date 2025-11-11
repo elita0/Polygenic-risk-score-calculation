@@ -61,7 +61,6 @@ Removes SNPs with high missing call rates (e.g., --geno 0.05 excludes SNPs missi
 - Individual missingness (--mind)
 Removes individuals with excessive missing genotypes (e.g., --mind 0.1 excludes samples with > 10% missing data).
 
-Additional QC steps may include sample sex check, heterozygosity outlier detection, and relatedness filtering.Quality control steps include:
 
 
 
