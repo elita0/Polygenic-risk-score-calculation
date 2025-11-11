@@ -2,31 +2,44 @@
 
 ## Setting up the environment
 
-### 1. PLINK Installation
-1. Download PLINK from [https://www.cog-genomics.org/plink/1.9/](https://www.cog-genomics.org/plink/1.9/), choosing the version for your operating system:
-   - Windows (64-bit or 32-bit)
-   - macOS
-   - Linux
-2. This repository is based on using the **Windows** version. PLINK command lines are identical across all operating systems, but minor syntax modifications may be required.
-3. Extract the downloaded `.zip` file.
-4. *(Optional)* Add PLINK to your system `PATH`:
-   - Open **Edit the system environment variables**.
-   - Click **Environment Variables**.
-   - Under **System variables**, find and edit `Path`.
-   - Click **New** and add the folder where you extracted PLINK.
+### 1. Download PLINK
 
----
 
-### 2. PRSice-2 Installation
-PRSice is designed to run from **R** and relies on PLINK for genetic data processing.
+PLINK 2.0 (recommended):
+🔗 https://www.cog-genomics.org/plink/2.0/
 
-1. Download PRSice from [https://github.com/choishingwan/PRSice](https://github.com/choishingwan/PRSice).
-2. **Install R** (required):  
-   Download and install the latest version of R from [https://cran.r-project.org/](https://cran.r-project.org/).  
-   *(Optional but recommended)* Install **RStudio** as an IDE: [https://posit.co/download/rstudio-desktop/](https://posit.co/download/rstudio-desktop/).
-3. Install the required R packages:
-   ```r
-   install.packages(c("data.table", "magrittr", "stringr"))
+Steps:
+
+Download the .zip file for Windows.
+
+Extract it to a local folder, e.g. C:\Users\<username>\plink\.
+
+(Optional) Add that folder to your system PATH environment variable,
+or run PLINK directly from the folder (e.g. .\plink2.exe in PowerShell).
+
+Example test:
+
+```
+.\plink2.exe --version
+```
+
+### 2. Download PRSice-2
+
+Download the PRSice-2 Windows package (PRSice_win64.zip).
+🔗[ https://www.prsice.info/
+](https://github.com/choishingwan/PRSice?tab=readme-ov-file)
+
+
+Extract all files to a working directory (e.g. C:\Users\<username>\PRSice\).
+
+Make sure you have R installed and added to PATH:
+🔗 https://cran.r-project.org/
+
+Test that PRSice runs:
+
+```
+Rscript PRSice.R --help
+```
 
 ### PRSice Usage Workflow
 
