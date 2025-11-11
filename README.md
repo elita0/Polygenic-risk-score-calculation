@@ -62,6 +62,13 @@ Test that PRSice runs:
 Rscript PRSice.R --help
 ```
 
+### Docker (optional, recommended for reproducibility)
+
+You can use the provided Docker environment instead of installing tools manually.
+
+Dockerfile: [./Dockerfile](./Dockerfile)  
+How to run: [./running_docker.md](./running_docker.md)
+
 
 ## Data
 Raw genotype tables should be converted to **PLINK binary files** for downstream analyses.  
