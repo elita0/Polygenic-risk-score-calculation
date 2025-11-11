@@ -14,6 +14,46 @@ Required input files:
 2.	A base cohort: GWAS summary statistics which will be used to calculate the PRS. 
 3.	A target phenotype: a file specifying sample IDs, phenotypes and covariates (optional)
 
+## Installation: PLINK and PRSice
+
+# 1. Download PLINK
+
+
+PLINK 2.0 (recommended):
+🔗 https://www.cog-genomics.org/plink/2.0/
+
+Steps (Windows):
+
+Download the .zip file for Windows.
+
+Extract it to a local folder, e.g. C:\Users\<username>\plink\.
+
+(Optional) Add that folder to your system PATH environment variable,
+or run PLINK directly from the folder (e.g. .\plink2.exe in PowerShell).
+
+Example test:
+
+.\plink2.exe --version
+
+
+# 2. Download PRSice-2
+
+
+🔗 https://www.prsice.info/
+
+
+Download the PRSice-2 Windows package (PRSice_win64.zip).
+
+Extract all files to a working directory (e.g. C:\Users\<username>\PRSice\).
+
+Make sure you have R installed and added to PATH:
+🔗 https://cran.r-project.org/
+
+Test that PRSice runs:
+
+Rscript PRSice.R --help
+
+
 
 ## Data
 Raw genotype tables should be converted to **PLINK binary files** for downstream analyses.  
