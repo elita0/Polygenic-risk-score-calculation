@@ -80,7 +80,7 @@ Otherwise, ambiguous SNPs should be removed to prevent strand mismatches.
 ## PRS calculation
 
 -All files should be in the same directiroy including PLINK and PRSice tools
-### PLINK
+### PRSice
 As a minor allele is used GWAS data
 
 
@@ -111,4 +111,9 @@ Rscript PRSice.R \
 |     1|               ||||
 |     2|               ||||
 |     3|               ||||
+
+
+### PRSice
+
+
 
