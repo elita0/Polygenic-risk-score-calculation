@@ -2,12 +2,19 @@
 
 This repository provides a complete workflow for calculating Polygenic Risk Scores (PRS) using PLINK 1.9/2.0 and PRSice-2.
 
-It includes:
+**Note:**  
+> All scripts and example commands in this repository are written for **Windows users** and executed via **PowerShell**.  
+> If you are using **Linux** or **macOS**, you may need to adapt:
+> - File paths (`\` → `/`)
+> - Line continuation symbols (PowerShell uses backticks `` ` ``, Bash uses backslashes `\`)
+> - Executable names (`plink2.exe` → `plink2`, `PRSice_win64.exe` → `PRSice_linux` or `PRSice_mac`)
 
-Environment setup instructions (PLINK, R, PRSice)
-Data conversion script (map_ped.py)
-QC and PRS computation pipeline
-Example input/output file structures
+
+It includes:  
+Environment setup instructions (PLINK, R, PRSice)  
+Data conversion script (`map_ped.py`)  
+QC and PRS computation pipeline  
+Example input/output file structures  
 
 Required input files:
 1.	A target cohort: genotype data of the individuals for which you wish to obtain PRS scores
@@ -16,13 +23,13 @@ Required input files:
 
 ## Installation: PLINK and PRSice
 
-# 1. Download PLINK
+### 1. Download PLINK
 
 
 PLINK 2.0 (recommended):
 🔗 https://www.cog-genomics.org/plink/2.0/
 
-Steps (Windows):
+Steps:
 
 Download the .zip file for Windows.
 
@@ -33,16 +40,16 @@ or run PLINK directly from the folder (e.g. .\plink2.exe in PowerShell).
 
 Example test:
 
+```
 .\plink2.exe --version
+```
 
-
-# 2. Download PRSice-2
-
-
-🔗 https://www.prsice.info/
-
+### 2. Download PRSice-2
 
 Download the PRSice-2 Windows package (PRSice_win64.zip).
+🔗[ https://www.prsice.info/
+](https://github.com/choishingwan/PRSice?tab=readme-ov-file)
+
 
 Extract all files to a working directory (e.g. C:\Users\<username>\PRSice\).
 
@@ -51,8 +58,9 @@ Make sure you have R installed and added to PATH:
 
 Test that PRSice runs:
 
+```
 Rscript PRSice.R --help
-
+```
 
 
 ## Data
@@ -125,16 +133,16 @@ As a minor allele is used GWAS data
 
 
 ```
-Rscript PRSice.R \
-  --prsice PRSice_win64.exe \
-  --base gwas_summary_stats.txt \
-  --target genotype_binary \
-  --pheno phenotype.txt \
-  --cov covariates.txt \
-  --snp SNP --chr CHR --bp BP --A1 A1 --A2 A2 \
-  --stat BETA --pvalue P \
-  --binary-target T \
-  --out PRS_output
+Rscript .\PRSice.R `
+  --prsice .\PRSice_win64.exe `
+  --base .\gwas_summary_stats.txt `
+  --target .\genotype_binary `
+  --pheno .\phenotype.txt `
+  --cov .\covariates.txt `
+  --snp SNP --chr CHR --bp BP --A1 A1 --A2 A2 `
+  --stat BETA --pvalue P `
+  --binary-target T `
+  --out .\PRS_output
 
 ```
  GWAS data
@@ -153,7 +161,13 @@ Rscript PRSice.R \
 |     3|               ||||
 
 
-### PRSice
+### PLINK
 
+```
+.\plink2.exe `
+  --pfile .\genotype_binary `
+  --score .\gwas_summary_stats.txt 1 2 3  `
+  --out .\PRS_output_plink2
+```
 
 
