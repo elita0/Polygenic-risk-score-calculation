@@ -154,7 +154,7 @@ Rscript .\PRSice.R `
 ```
  GWAS data
 
-|SNP | CHR |BPT|A1|A2|BETA|P-value|
+|SNP | CHR |BP|A1|A2|BETA|P-value|
 |-----:|---------------|-|-|----|-|-|
 |     1|               ||||||
 |     3|               ||||||
