@@ -161,7 +161,7 @@ Rscript .\PRSice.R `
 
 ### output file format
 
-|FID | IID |ALLELE_CT|NAMED_ALLELE_DOSAGE_SUM|SCORE1_AVG|
+|FID | IID |CNT|CNT2|SCORESUM|
 |-----:|---------------|-|-|----|
 |     1|               ||||
 |     2|               ||||
